@@ -1,0 +1,13 @@
+Currently XEN does not have a backup API. That means, that Xen virtual machines can not be backed up online with using the existing XEN tools.
+Backup approach :
+	1- Create an LVM snapshot of the logical volume where the VM is stored
+	2- Mount this snapshot into the filesystem
+	3- Perform a pathbackup with SEP sesam from the mountpoint of the LVM snapshot
+	4- Dismount the snapshot from the filesystem after backup
+	5- Delete the snapshot
+
+
+Open source solution for backup :
+(Bash script) http://community.citrix.com/display/xs/Bash+online+mass+VM+backup
+(SEP sesam) http://wiki.sepsoftware.com/wiki/index.php/Online_backup_of_virtual_XEN_machines
+(Python script) http://www.jansipke.nl/creating-backups-of-running-vms-in-xenserver
